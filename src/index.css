@@ -1,0 +1,10 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /*background: radial-gradient(at 50% 60%, #379120 0%, #379120 40%, #195909 100%);*/
+  background: radial-gradient(at 50% 60%, #e3ae32 0%, #6264c4 40%, #37608a 60%, #123152 100%);
+}
