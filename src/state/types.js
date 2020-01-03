@@ -1,1 +1,1 @@
-export const SEED_SET = 'APP/SEED_SET';
+export const SEED_NEXT = 'APP/SEED_NEXT';

@@ -1,12 +1,20 @@
+import * as React from 'react';
 import City from '~/components/City';
 import Controls from '~/components/Controls';
-import React from 'react';
 import { Canvas } from 'react-three-fiber';
-import { ReactReduxContext, Provider, useDispatch, useSelector } from 'react-redux';
+import { seedNext } from '~/state/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { useTimer } from '~/hooks';
+
+const RefreshPeriod = 30000;
 
 const LandingView = (props) => {
+  const dispatch = useDispatch();
   const size = useSelector(_ => _.landing.size);
   const seed = useSelector(_ => _.landing.seed);
+
+  useTimer(RefreshPeriod, () => dispatch(seedNext(Math.random())));
+
   return (
     <Canvas
       shadowMap
