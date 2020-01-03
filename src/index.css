@@ -5,6 +5,5 @@ body {
 }
 
 body {
-  /*background: radial-gradient(at 50% 60%, #379120 0%, #379120 40%, #195909 100%);*/
-  background: radial-gradient(at 50% 60%, #e3ae32 0%, #6264c4 40%, #37608a 60%, #123152 100%);
+  background: radial-gradient(at 50% 60%, #6264c4 0%, #37608a 50%, #123152 100%);
 }
