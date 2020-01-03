@@ -1,6 +1,6 @@
-# monarchy-web-devel
+# abhandaru-web
 
-This is a web-based API client for the monarchy backend intended for easing development and debugging.
+This is the source code for [abhandaru.com](https://abhandaru.com).
 
 ### Usage
 
