@@ -2,10 +2,11 @@ import * as Types from './types'
 import { combineReducers } from 'redux'
 
 const INITIAL = {
-  seed: Math.random()
+  seed: Math.random(),
+  size: 20
 };
 
-const core = (state = INITIAL, action) => {
+const landing = (state = INITIAL, action) => {
   switch (action.type) {
     default:
       return state;
@@ -13,5 +14,5 @@ const core = (state = INITIAL, action) => {
 };
 
 export default combineReducers({
-  core
+  landing
 });

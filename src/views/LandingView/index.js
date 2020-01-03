@@ -1,67 +1,12 @@
-import * as Colors from '~/components/lib/colors';
-import * as Grid from '~/compute/grid';
-import Basic from '~/components/connectors/Basic';
-import Building from '~/components/Building';
-import Connector from '~/components/Connector';
+import City from '~/components/City';
 import Controls from '~/components/Controls';
-import Intersection from '~/components/Intersection';
-import Park from '~/components/Park';
-import Pavement from '~/components/Pavement';
-import React, { useRef } from 'react'
-import ReactDOM from 'react-dom'
-import Road from '~/components/connectors/Road';
-import Water from '~/components/Water';
-import WaterWay from '~/components/connectors/WaterWay';
-import WoodedArea from '~/components/WoodedArea';
-import { Canvas } from 'react-three-fiber'
-import { useDispatch, useSelector } from 'react-redux'
-
-const GridSize = 20;
-
-const Renderers = {
-  Block: {
-    Building,
-    Intersection,
-    Water,
-    Park,
-    Pavement,
-    WoodedArea,
-  },
-  Connector: {
-    Basic,
-    Road,
-    WaterWay,
-  },
-  Intersection: {
-    Intersection
-  }
-};
-
-const Land = (props) => (
-  <mesh
-    receiveShadow
-    position={[0, 0.995, 0]}
-    rotation-x={-Math.PI / 2}>
-    <circleBufferGeometry attach='geometry' args={[500, 32]} />
-    <meshToonMaterial attach='material' color={Colors.PARK} />
-  </mesh>
-);
-
-const City = (props) => {
-  const grid = Grid.generate(GridSize);
-  const nodes = grid.reduce((z, r) => z.concat(r), []);
-  return (
-    <group position-y={-1}>
-      <Land />
-      {nodes.map((node, i) => {
-        const Component = Renderers[node.type][node.component];
-        return <Component key={i} {...node} />
-      })}
-    </group>
-  );
-};
+import React from 'react';
+import { Canvas } from 'react-three-fiber';
+import { ReactReduxContext, Provider, useDispatch, useSelector } from 'react-redux';
 
 const LandingView = (props) => {
+  const size = useSelector(_ => _.landing.size);
+  const seed = useSelector(_ => _.landing.seed);
   return (
     <Canvas
       shadowMap
@@ -76,7 +21,7 @@ const LandingView = (props) => {
         castShadow
       />
       <Controls />
-      <City />
+      <City size={size} seed={seed} />
     </Canvas>
   );
 };

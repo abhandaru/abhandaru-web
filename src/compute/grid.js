@@ -25,9 +25,9 @@ export const NeighborDeltas = [
   [0, -1],
 ];
 
-export const generate = (size) => {
+export const generate = (seed, size) => {
   const grid = Array(size * 2 + 1).fill(null).map(_ => Array(size * 2 + 1));
-  const rand = Stats.Random(72);
+  const rand = Stats.Random(seed);
   for (let i = 1; i < grid.length - 1; i += 2) {
     for (let j = 1; j < grid[0].length - 1; j += 2) {
       const row = i - size;
@@ -73,8 +73,8 @@ const genRiverPatch = (rand, grid) => {
   const range = Math.floor(grid[0].length / 2);
   const len = Math.floor(grid.length / 2);
 
-  const start = Math.floor((rand.uniform() - 0.5) * range - 1);
-  const river = [[0, 1]];
+  const start = Math.round(rand.gaussian() / 6 * range);
+  const river = [[start, start + 1]];
   for (let i = 1; i < len ; i++) {
     const threshold = rand.uniform();
     const dir = threshold < 0.3 ? -1 : (threshold < 0.7 ? 0 : 1);
