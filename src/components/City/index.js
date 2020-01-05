@@ -2,6 +2,7 @@ import * as Colors from '~/components/lib/colors';
 import * as Grid from '~/compute/grid';
 import Basic from '~/components/connectors/Basic';
 import Building from '~/components/blocks/Building';
+import Construction from '~/components/blocks/Construction';
 import Intersection from '~/components/Intersection';
 import Park from '~/components/blocks/Park';
 import Pavement from '~/components/blocks/Pavement';
@@ -14,10 +15,11 @@ import WoodedArea from '~/components/blocks/WoodedArea';
 const Renderers = {
   Block: {
     Building,
+    Construction,
     Intersection,
-    Water,
     Park,
     Pavement,
+    Water,
     WoodedArea,
   },
   Connector: {

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 import City from '~/components/City';
+import Sky from '~/components/Sky';
 import Controls from '~/components/Controls';
 import styles from './styles.css';
 import { Canvas } from 'react-three-fiber';
@@ -28,15 +29,8 @@ const LandingView = (props) => {
         shadowMap
         camera={{ position: [8, 12, 18] }}
         style={{width: '100vw', height: '100vh'}}>
-        <ambientLight intensity={0.6} />
-        <spotLight
-          intensity={0.6}
-          position={[20, 50, 100]}
-          angle={2}
-          penumbra={1}
-          castShadow
-        />
         <Controls />
+        <Sky />
         <City size={size} seed={seed} />
       </Canvas>
     </div>

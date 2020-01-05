@@ -5,6 +5,7 @@ export const BlockWidth = 1;
 export const ConnectorWidth = 0.3;
 export const BlockWeights = [
   [0, 'Pavement'],
+  [0, 'Construction'],
   [0.5, 'Water'],
   [2, 'Park'],
   [5, 'WoodedArea'],
@@ -123,13 +124,16 @@ const genBlock = (rand, grid, row, col) => {
         const floors = Math.ceil(Math.abs(rand.gaussian()) * 1.5);
         const roofingThreshold = rand.uniform();
         let roofing;
-        if (roofingThreshold < 0.8) roofing = 'none';
-        else if (roofingThreshold < 0.9 && floors < 3) roofing = 'dome';
+        if (roofingThreshold < 0.6) roofing = 'none';
+        else if (roofingThreshold < 0.8 && floors < 3) roofing = 'dome';
         else if (roofingThreshold < 1.0 && floors < 3) roofing = 'crest';
-        else if (roofingThreshold < 0.9) roofing = 'spire';
-        // else if (roofingThreshold < 0.9) roofing = 'crest';
+        else if (roofingThreshold < 0.8) roofing = 'spire';
+        // else if (roofingThreshold < 0.8) roofing = 'crest';
         else roofing = 'crest';
         return { ...defaultProps, floors, roofing };
+      } else if (component === 'Construction') {
+        const progress = 0.4 + rand.uniform();
+        return { ...defaultProps, progress};
       } else if (component === 'WoodedArea') {
         const trees = Array(Math.floor(rand.uniform() * 10)).fill(null).map(_ => genTree(rand))
         return { ...defaultProps, trees };

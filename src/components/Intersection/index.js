@@ -45,6 +45,7 @@ const colorForAdjecents = (blocks) => {
       case 'WoodedArea-WoodedArea-WoodedArea-WoodedArea': return Colors.WOODED_AREA;
       default:
         if (components.includes('Building')) return Colors.ROAD;
+        if (components.includes('Construction')) return Colors.ROAD;
         if (components.includes('None')) {
           const remaining = components.filter(_ => _ != 'None');
           switch (remaining.sort().join('-')) {

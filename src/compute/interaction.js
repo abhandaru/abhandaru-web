@@ -16,11 +16,17 @@ export const selectConnector2 = (components) => {
   const rep = components.sort().join('-');
   switch (rep) {
     case 'Building-Building': return Connector('Road');
+    case 'Building-Construction': return Connector('Road');
     case 'Building-None': return Connector('Road');
     case 'Building-Park': return Connector('Road');
     case 'Building-Pavement': return Connector('Road');
     case 'Building-Water': return Connector('Road');
     case 'Building-WoodedArea': return Connector('Road');
+    case 'Construction-None': return Connector('Road');
+    case 'Construction-Park': return Connector('Road');
+    case 'Construction-Pavement': return Connector('Road');
+    case 'Construction-Water': return Connector('Road');
+    case 'Construction-WoodedArea': return Connector('Road');
     case 'None-None': return BasicConnector('yellow');
     case 'None-Park': return BasicConnector(Colors.PARK);
     case 'None-Pavement': return BasicConnector(Colors.ROAD);

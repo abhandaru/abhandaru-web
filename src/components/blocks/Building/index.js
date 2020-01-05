@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
-import { useFrame } from 'react-three-fiber';
-import * as Grid from '~/compute/grid';
 import * as Colors from '~/components/lib/colors';
+import * as Grid from '~/compute/grid';
+import * as React from 'react';
+import Beacon from '~/components/accents/Beacon';
 
 const FloorHeight = 1;
 
@@ -34,6 +34,10 @@ const Spire = (props) => {
   const offsetY = height / 2;
   return (
     <group position-y={offsetY}>
+      <Beacon
+        height={lenSpire}
+        color='red'
+      />
       <mesh
         position-y={lenSpire / 2}
         castShadow
@@ -77,7 +81,6 @@ const Dome = (props) => {
 };
 
 const Building = (props) => {
-  // const ref = useRef()
   const { grid, floors, row, col, roofing } = props;
   const height = 1 + floors * FloorHeight;
   const x = Grid.blockPosition(row);
