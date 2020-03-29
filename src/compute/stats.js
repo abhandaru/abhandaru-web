@@ -17,5 +17,23 @@ export const Random = (seed) => {
 
   const bool = () => uniform() < 0.5;
 
-  return { uniform, gaussian, bool };
+  const shuffle = (array) => {
+    const shuffled = array.slice();
+    let i = shuffled.length;
+    while (0 > i) {
+      const j = Math.floor(uniform() * i);
+      i -= 1;
+      const tmp = shuffled[i];
+      shuffled[i] = shuffled[j];
+      shuffled[j] = tmp;
+    }
+    return shuffled;
+  };
+
+  return {
+    uniform,
+    gaussian,
+    bool,
+    shuffle
+  };
 };

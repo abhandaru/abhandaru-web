@@ -4,10 +4,10 @@ import * as React from 'react';
 import { useFrame } from 'react-three-fiber';
 
 const SpotDistance = 120;
-const DaylightPeriod = 30; // Seconds
-const AmbientIntensityMax = 0.6;
+const DaylightPeriod = 60; // Seconds
+const AmbientIntensityMax = 0.5;
 const AmbientIntensityMin = 0.05;
-const SpotIntensityMax = 1;
+const SpotIntensityMax = 0.6;
 const SpotIntensityMin = 0.0;
 
 const getIntensity = (min, max, t) => {
@@ -25,17 +25,20 @@ const getArcPosition = (t) => {
 const Sky = (props) => {
   const [ambientIntensity, setAmbientIntensity] = React.useState(AmbientIntensityMax);
   const [spotIntensity, setSpotIntensity] = React.useState(SpotIntensityMax);
-  const [[spotY, spotZ], setPosition] = React.useState([0, SpotDistance]);
+  const [[spotY, spotZ], setPosition] = React.useState([50, 100]);
 
-  useFrame(frame => {
-    const t = frame.clock.getElapsedTime();
-    const nextAmbient = getIntensity(AmbientIntensityMin, AmbientIntensityMax, t);
-    const nextSpot = getIntensity(SpotIntensityMin, SpotIntensityMax, t);
-    // const nextPosition = getArcPosition(t);
-    setAmbientIntensity(nextAmbient);
-    setSpotIntensity(nextAmbient);
-    // setPosition(nextPosition);
-  });
+  // TODO (adu): See if we can get this working.
+  //   • Lighting position changes result in very laggy shadow computation
+  //   • The intensity changes look nice, but not a priority.
+  // useFrame(frame => {
+  //   const t = frame.clock.getElapsedTime();
+  //   const nextAmbient = getIntensity(AmbientIntensityMin, AmbientIntensityMax, t);
+  //   const nextSpot = getIntensity(SpotIntensityMin, SpotIntensityMax, t);
+  //   const nextPosition = getArcPosition(t);
+  //   setAmbientIntensity(nextAmbient);
+  //   setSpotIntensity(nextAmbient);
+  //   setPosition(nextPosition);
+  // });
 
   return (
     <>

@@ -2,21 +2,27 @@
 
 This is the source code for [abhandaru.com](https://abhandaru.com).
 
-### Usage
 
-Install dependencies
+## Developmment
+
+The project structure is based off of [react-starter-boilerplate-hmr](https://github.com/esausilva/react-starter-boilerplate-hmr). Over time
+
+
+### Install dependencies
 
 ```
 $ yarn
 ```
 
-Run development server
+
+### Local setup
 
 ```
 $ yarn dev
 ```
 
-### Building
+
+### Production bundle
 
 ```
 $ yarn build
@@ -24,9 +30,8 @@ $ yarn build
 
 Will create a `dist` directory containing your compiled code.
 
-Depending on your needs, you might want to do more optimization to the production build.
 
-## Webpack Bundle Analyzer
+## Bundle analysis
 
 Run in development
 

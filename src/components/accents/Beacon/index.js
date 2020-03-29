@@ -26,7 +26,7 @@ const Beacon = (props) => {
         decay={2}
       />
       <mesh receiveShadow castShadow>
-        <sphereBufferGeometry attach='geometry' args={[0.05]} />
+        <sphereBufferGeometry attach='geometry' args={[0.03]} />
         <meshToonMaterial attach='material' color={color} />
       </mesh>
     </group>

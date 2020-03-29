@@ -87,12 +87,14 @@ const Intersection = (props) => {
   const color = colorForAdjecents(neighbors);
 
   return (
-    <mesh
-      receiveShadow
-      position={[x, y, z]}>
-      <boxBufferGeometry attach='geometry' args={[Grid.ConnectorWidth, 1, Grid.ConnectorWidth]} />
-      <meshToonMaterial attach='material' color={color} />
-    </mesh>
+    <>
+      <mesh
+        receiveShadow
+        position={[x, y, z]}>
+        <boxBufferGeometry attach='geometry' args={[Grid.ConnectorWidth, 1, Grid.ConnectorWidth]} />
+        <meshToonMaterial attach='material' color={color} />
+      </mesh>
+    </>
   );
 };
 

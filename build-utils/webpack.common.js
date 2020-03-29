@@ -1,8 +1,10 @@
 const commonPaths = require('./common-paths');
-
-const webpack = require('webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const path = require('path');
 
+const root = path.resolve(__dirname, '../');
 const config = {
   entry: {
     // vendor: []
@@ -50,6 +52,9 @@ const config = {
     }
   },
   plugins: [
+    new CopyPlugin([
+      { from: `${root}/public`, to: `${root}/dist` },
+    ]),
     new HtmlWebpackPlugin({
       template: `public/index.html`,
       favicon: `public/favicon.ico`

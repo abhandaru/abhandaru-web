@@ -1,5 +1,6 @@
 import * as Stats from './stats';
 import * as Interaction from './interaction';
+import * as Briges from './Bridges';
 
 export const BlockWidth = 1;
 export const ConnectorWidth = 0.3;
@@ -26,6 +27,9 @@ export const NeighborDeltas = [
   [0, -1],
 ];
 
+// Maybe swap with different implementations later.
+// Some sort of markov model might also make sense, would have to see if the
+// results look natural.
 export const generate = (seed, size) => {
   const grid = Array(size * 2 + 1).fill(null).map(_ => Array(size * 2 + 1));
   const rand = Stats.Random(seed);
@@ -49,9 +53,10 @@ export const generate = (seed, size) => {
   const patchGenerators = [];
   const riverCount = Math.max(0, Math.round(2 * Math.log10(size)) - 1);
   for (let i = 0; i < riverCount; i++) {
-    patchGenerators.push(genRiverPatch)
+    patchGenerators.push(genRiverPatch);
   }
-  patchGenerators.push(genConnectorPatch)
+  patchGenerators.push(genConnectorPatch);
+  patchGenerators.push(Briges.genPatch);
 
   // Apply patches in order.
   return patchGenerators.reduce((g, gen) => patch(rand, g, gen), grid);
@@ -96,7 +101,7 @@ const genRiverPatch = (rand, grid) => {
 };
 
 const genConnectorPatch = (rand, grid) => {
-  const nodes = grid.reduce((z, r) => z.concat(r), []);
+  const nodes = grid.flat();
   const patch = [];
   for (let i = 0; i < nodes.length; i++) {
     const node = nodes[i];
@@ -109,10 +114,6 @@ const genConnectorPatch = (rand, grid) => {
   }
   return patch;
 };
-
-// const genBridgesPatch = (rand, grid) => {
-//
-// };
 
 const genBlock = (rand, grid, row, col) => {
   let threshold = rand.uniform();
