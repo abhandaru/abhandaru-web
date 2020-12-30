@@ -20,7 +20,8 @@
     "react-three-fiber": "^3.0.17",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
-    "three": "^0.112.1"
+    "three": "^0.112.1",
+    "three-js-csg-es6": "^73.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",

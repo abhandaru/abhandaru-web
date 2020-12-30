@@ -2,6 +2,7 @@ import * as Types from './types'
 import { combineReducers } from 'redux'
 
 const INITIAL = {
+  // seed: Math.random(),
   seed: 7,
   size: 20
 };

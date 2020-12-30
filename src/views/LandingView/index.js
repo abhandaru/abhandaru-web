@@ -18,7 +18,7 @@ const LandingView = (props) => {
   const seed = useSelector(_ => _.landing.seed);
   const [opaque, setOpaque] = React.useState(false);
 
-  useTimer(RefreshPeriod, () => dispatch(seedNext(Math.random())));
+  // useTimer(RefreshPeriod, () => dispatch(seedNext(Math.random())));
   useDelay(FadeInDelay, () => setOpaque(true));
 
   const className = classnames(styles.root, opaque && styles.opaque);

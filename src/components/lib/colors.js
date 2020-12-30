@@ -7,6 +7,7 @@ export const ROAD = parseInt('0x5c5c5c', 16);
 export const DEBUG = 'yellow';
 export const BUILDING = parseInt('0xdbdbdb', 16);
 export const BUILDING_DEEP = parseInt('0xa3a3a3', 16);
+export const BRIDGE = parseInt('0xa3a3a3', 16);
 
 export const SIGNAL_WARN = 'orange';
 export const SIGNAL_ERR = parseInt('0xad153d', 16);

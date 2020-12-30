@@ -1,6 +1,6 @@
 // Show a nice greeting to our fellow builders.
-console.info('%c👨🏾‍💻 You’re looking in the right place!', 'background: #EEE; padding: 10px; font-weight: bold; font-size: large;');
-console.info('%cCheck out my work – https://github.com/abhandaru\nCome work with me – https://thrivecash.com', 'padding: 10px; font-weight: bold;');
+console.info('%c👨🏾‍💻 You’re looking in the right place!', 'padding: 10px; font-weight: bold; font-size: large;');
+console.info('%cCheck out my work – https://github.com/abhandaru\nCome work with me – https://x1creditcard.com', 'padding: 10px; font-weight: bold;');
 
 // Onwards with the actual code.
 import './index.css';

@@ -1,6 +1,7 @@
 import * as Colors from '~/components/lib/colors';
 import * as Grid from '~/compute/grid';
 import Basic from '~/components/connectors/Basic';
+import Bridge from '~/components/connectors/Bridge';
 import Building from '~/components/blocks/Building';
 import Construction from '~/components/blocks/Construction';
 import Intersection from '~/components/Intersection';
@@ -24,6 +25,7 @@ const Renderers = {
   },
   Connector: {
     Basic,
+    Bridge,
     Road,
     WaterWay,
   },

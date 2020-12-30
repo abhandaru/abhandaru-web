@@ -57,7 +57,7 @@ export const generate = (seed, size) => {
   }
   patchGenerators.push(genConnectorPatch);
   // TODO (adu): Comment back in when ready.
-  // patchGenerators.push(Briges.genPatch);
+  patchGenerators.push(Briges.genPatch);
 
   // Apply patches in order.
   return patchGenerators.reduce((g, gen) => patch(rand, g, gen), grid);

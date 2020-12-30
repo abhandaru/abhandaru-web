@@ -1,4 +1,7 @@
 const Padding = 2;
+const MinSpan = 1;
+const MaxSpan = 3;
+const Frequency = 0.1;
 
 /**
  * Until we do something like curved bridges (awesome), we can just do row and
@@ -25,10 +28,6 @@ export const genPatch = (rand, grid) => {
         run = [];
       }
     }
-    // if (run.length) {
-    //   candidates.push(run);
-    //   run = [];
-    // }
   }
 
   // Now the column-wise runs.
@@ -43,22 +42,21 @@ export const genPatch = (rand, grid) => {
         run = [];
       }
     }
-    // if (run.length) {
-    //   candidates.push(run);
-    //   run = [];
-    // }
   }
 
   candidates.forEach(run => {
-    const canBuild = run.length <= 3 && rand.uniform() < 0.1;
+    const spanOk = MinSpan <= run.length && run.length <= MaxSpan
+    const canBuild = spanOk && rand.uniform() < 0.1;
     if (canBuild) {
       run.forEach((node, i) => {
         const bridge = { index: i, length: run.length };
-        const next = ({ ...node, component: 'Basic', color: 'yellow', bridge });
+        const next = ({ ...node, component: 'Bridge', bridge });
         patch.push(next);
       });
     }
   });
+
+  console.log(patch);
 
   return patch;
 };

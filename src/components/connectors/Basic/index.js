@@ -7,7 +7,7 @@ let cc = 0;
 const Basic = (props) => {
   const { row, col, orientation, height, material, color, children } = props;
   const colorOverride = color != null ? color : Colors.DEBUG;
-  const heightOverride = height != null ? height : 1;
+  const heightOverride = height != null ? height : Grid.BlockWidth;
   const materialOverride = material != null ?
     material : <meshToonMaterial attach='material' color={colorOverride} />;
 

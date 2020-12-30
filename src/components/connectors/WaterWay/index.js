@@ -1,7 +1,6 @@
 import * as Colors from '~/components/lib/colors';
 import Basic from '~/components/connectors/Basic';
-import React, { useRef } from 'react';
-import { useFrame } from 'react-three-fiber';
+import React from 'react';
 
 const WaterWay = (props) => {
   const { row, col, orientation } = props;
